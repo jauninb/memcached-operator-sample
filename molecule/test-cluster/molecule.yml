@@ -7,6 +7,7 @@ driver:
     managed: False
     ansible_connection_options: {}
 lint: |
+  env | sort
   yamllint -d "{extends: relaxed, rules: {line-length: {max: 120}}}" .
   echo "yaml lint done but do not exit in error for now"
 platforms:
@@ -24,6 +25,7 @@ provisioner:
     enabled: False
   env:
     ANSIBLE_ROLES_PATH: ${MOLECULE_PROJECT_DIRECTORY}/roles
+    K8S_AUTH_KUBECONFIG: ${KUBECONFIG:-'/root/.kube/config'}
 scenario:
   name: test-cluster
   test_sequence:
