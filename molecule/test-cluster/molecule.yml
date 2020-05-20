@@ -7,7 +7,7 @@ driver:
     managed: False
     ansible_connection_options: {}
 lint: |
-  yamllint
+  yamllint -d "{extends: relaxed, rules: {line-length: {max: 120}}}" .
 platforms:
 - name: test-cluster
   groups:
@@ -17,7 +17,7 @@ provisioner:
   inventory:
     group_vars:
       all:
-        namespace: ${TEST_NAMESPACE:-osdk-test}
+        namespace: ${CLUSTER_NAMESPACE:-osdk-test}
   lint:
     name: ansible-lint
     enabled: False
