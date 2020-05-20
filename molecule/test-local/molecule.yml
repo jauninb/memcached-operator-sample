@@ -44,8 +44,8 @@ provisioner:
 scenario:
   name: test-local
   test_sequence:
-    - lint
-    - destroy
+    # - lint
+    # - destroy
     - dependency
     - syntax
     - create
