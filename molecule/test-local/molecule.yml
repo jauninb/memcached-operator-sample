@@ -40,13 +40,13 @@ provisioner:
     K8S_AUTH_KUBECONFIG: ${MOLECULE_EPHEMERAL_DIRECTORY}/kubeconfig
     KUBECONFIG: ${MOLECULE_EPHEMERAL_DIRECTORY}/kubeconfig
     ANSIBLE_ROLES_PATH: ${MOLECULE_PROJECT_DIRECTORY}/roles
-    ANSIBLE_COLLECTIONS_PATHS: ${MOLECULE_PROJECT_DIRECTORY}
+    ANSIBLE_COLLECTIONS_PATHS: '~/.ansible/collections:/usr/share/ansible/collections:${MOLECULE_PROJECT_DIRECTORY}'
     KIND_PORT: '${TEST_CLUSTER_PORT:-10443}'
 scenario:
   name: test-local
   test_sequence:
-    # - lint
-    # - destroy
+    - lint
+    - destroy
     - dependency
     - syntax
     - create
