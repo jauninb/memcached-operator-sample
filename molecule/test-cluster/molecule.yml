@@ -11,9 +11,9 @@ lint: |
   yamllint -d "{extends: relaxed, rules: {line-length: {max: 120}}}" .
   echo "yaml lint done but do not exit in error for now"
 platforms:
-- name: test-cluster
-  groups:
-  - k8s
+  - name: test-cluster
+    groups:
+      - k8s
 provisioner:
   name: ansible
   inventory:

@@ -2,7 +2,7 @@
 - name: Build Operator in Kubernetes docker container
   hosts: k8s
   collections:
-   - community.kubernetes
+    - community.kubernetes
 
   vars:
     image: cache.example.com/memcached-operator:testing
@@ -19,14 +19,14 @@
       register: build_cmd
       changed_when: not hash or (hash and hash not in cmd_out)
       vars:
-        hash: '{{ prev_hash_raw.stdout }}'
+        hash: "{{ prev_hash_raw.stdout }}"
         cmd_out: '{{ "".join(build_cmd.stdout_lines[-2:]) }}'
 
 - name: Converge
   hosts: localhost
   connection: local
   collections:
-   - community.kubernetes
+    - community.kubernetes
 
   vars:
     image: cache.example.com/memcached-operator:testing
@@ -35,7 +35,7 @@
   tasks:
     - name: Create the Operator Deployment
       k8s:
-        namespace: '{{ namespace }}'
+        namespace: "{{ namespace }}"
         definition: "{{ lookup('template', operator_template) }}"
         wait: yes
       vars:
