@@ -6,8 +6,8 @@
       kind: Deployment
       apiVersion: apps/v1
       metadata:
-        name: '{{ meta.name }}-memcached'
-        namespace: '{{ meta.namespace }}'
+        name: "{{ meta.name }}-memcached"
+        namespace: "{{ meta.namespace }}"
       spec:
         replicas: "{{size}}"
         selector:
@@ -19,13 +19,13 @@
               app: memcached
           spec:
             containers:
-            - name: memcached
-              command:
-              - memcached
-              - -m=64
-              - -o
-              - modern
-              - -v
-              image: "docker.io/memcached:1.4.36-alpine"
-              ports:
-                - containerPort: 11211
+              - name: memcached
+                command:
+                  - memcached
+                  - -m=64
+                  - -o
+                  - modern
+                  - -v
+                image: "docker.io/memcached:1.4.36-alpine"
+                ports:
+                  - containerPort: 11211
