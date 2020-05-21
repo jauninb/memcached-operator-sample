@@ -16,6 +16,10 @@
 
     - name: test environment
       command: ls -l /build
+      register: ls_content
+
+    - debug:
+        var: ls_content
 
     - name: Build Operator Image
       command: docker build -f /build/build/Dockerfile -t {{ image }} /build
