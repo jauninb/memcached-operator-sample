@@ -51,7 +51,7 @@ scenario:
     # - dependency
     # - syntax
     # - create
-    # - prepare
+    - prepare
     - converge
     # - side_effect
     # - verify
