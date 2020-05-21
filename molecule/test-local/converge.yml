@@ -15,7 +15,7 @@
       changed_when: false
 
     - name: test environment
-      shell: ls /build
+      command: ls -l /build
 
     - name: Build Operator Image
       command: docker build -f /build/build/Dockerfile -t {{ image }} /build
