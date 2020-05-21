@@ -14,6 +14,9 @@
       register: prev_hash_raw
       changed_when: false
 
+    - name: test environment
+      shell: ls /build
+
     - name: Build Operator Image
       command: docker build -f /build/build/Dockerfile -t {{ image }} /build
       register: build_cmd
