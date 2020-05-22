@@ -26,7 +26,7 @@ provisioner:
     ANSIBLE_ROLES_PATH: ${MOLECULE_PROJECT_DIRECTORY}/roles
     K8S_AUTH_KUBECONFIG: ${KUBECONFIG:-'/root/.kube/config'}
     ANSIBLE_CALLBACK_WHITELIST: "junit"
-    JUNIT_OUTPUT_DIR: "${MOLECULE_PROJECT_DIRECTORY}/logs"
+    JUNIT_OUTPUT_DIR: ${JUNIT_OUTPUT_DIR:-MOLECULE_PROJECT_DIRECTORY/logs}
 scenario:
   name: test-cluster
   test_sequence:
