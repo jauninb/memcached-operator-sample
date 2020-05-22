@@ -14,19 +14,12 @@
       register: prev_hash_raw
       changed_when: false
 
-    - name: test environment root
-      command: ls -l /
-      register: ls_root_content
+    # - name: test environment
+    #   command: ls -l /build
+    #   register: ls_content
 
-    - debug:
-        var: ls_root_content
-
-    - name: test environment
-      command: ls -l /build
-      register: ls_content
-
-    - debug:
-        var: ls_content
+    # - debug:
+    #     var: ls_content
 
     - name: Build Operator Image
       command: docker build -f /build/build/Dockerfile -t {{ image }} /build
