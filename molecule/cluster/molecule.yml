@@ -28,8 +28,6 @@ provisioner:
         operator_pull_policy: ${OPERATOR_PULL_POLICY:-"Always"}
   env:
     K8S_AUTH_KUBECONFIG: ${KUBECONFIG:-"~/.kube/config"}
-    ANSIBLE_CALLBACK_WHITELIST: "junit"
-    JUNIT_OUTPUT_DIR: "${JUNIT_OUTPUT_DIR:-'MOLECULE_PROJECT_DIRECTORY}/logs'"
 verifier:
   name: ansible
   lint: |
