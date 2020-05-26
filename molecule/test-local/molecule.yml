@@ -42,6 +42,8 @@ provisioner:
     ANSIBLE_ROLES_PATH: ${MOLECULE_PROJECT_DIRECTORY}/roles
     ANSIBLE_COLLECTIONS_PATHS: "~/.ansible/collections:/usr/share/ansible/collections:${MOLECULE_PROJECT_DIRECTORY}"
     KIND_PORT: "${TEST_CLUSTER_PORT:-10443}"
+    ANSIBLE_CALLBACK_WHITELIST: "junit"
+    JUNIT_OUTPUT_DIR: ${JUNIT_OUTPUT_DIR:-MOLECULE_PROJECT_DIRECTORY/logs}
 scenario:
   name: test-local
   test_sequence:
