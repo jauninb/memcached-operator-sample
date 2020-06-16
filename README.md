@@ -92,6 +92,7 @@ kubectl logs deployment.apps/memcached-operator -n memcached
 
 See [Testing Ansible Operators with Molecule][ansible-test-guide] documentation to know how to use the operator framework features to test it.  
 
+
 [python]: https://www.python.org/
 [ansible]: https://www.ansible.com/
 [kubectl_tool]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
